@@ -1,0 +1,34 @@
+<%@ page import="fr.eni.dispocar.bo.Utilisateur" %>
+<%@ include file="../layout/main.jspf" %>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container">
+    <img alt="eni_logo" src="${ pageContext.request.contextPath }/resources/images/eni.png" class="d-line-block align-top me-2" width="80" height="auto" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <a class="navbar-brand" href="${pageContext.request.contextPath }/private/calendrier">Calendrier</a>
+	      <ul class="navbar-nav me-auto mb-lg-0">
+      <c:if test="${sessionScope.utilisateur.administrateur == true }">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath }/private/utilisateurs">Utilisateurs</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inscription</a>
+	        </li>
+	     </c:if>
+	      	<li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Adresses</a></li>
+	      	<li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Reservations</a></li>
+	      	<li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Vehicules</a></li>
+	      	<li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Personnel</a></li>
+	      </ul>
+    </div>
+    <div>
+    	<ul class="navbar-nav me-auto mb-lg-0">
+    		<li class="nav-item me-2">Bonjour ${ sessionScope.utilisateur.email}</li>
+    		<li class="nav-item me-2"><a href="${pageContext.request.contextPath }/private/deconnection">Deconnexion</a></li>
+    	</ul>
+    	</div>
+  </div>
+</nav>

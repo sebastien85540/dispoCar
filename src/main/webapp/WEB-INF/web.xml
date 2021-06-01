@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DispoCar</display-name>
+  <welcome-file-list>
+    <welcome-file>private/calendrier</welcome-file>
+  </welcome-file-list>
+  <!-- Securité : limiter le temps d'inactivité d'une session -->
+  <session-config>
+    <session-timeout>5</session-timeout>
+  </session-config>
+  <!-- Sécurité : activer la securisation SSL (cf server.xml : connector 8443)-->
+  <security-constraint>
+	<web-resource-collection>
+		<url-pattern>/public/connection</url-pattern>
+		<http-method>GET</http-method>
+		<http-method>POST</http-method>
+    </web-resource-collection>
+	<!--force le passage en HTTPS-->
+	<user-data-constraint>
+		<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint>
+  </security-constraint>
+</web-app>
