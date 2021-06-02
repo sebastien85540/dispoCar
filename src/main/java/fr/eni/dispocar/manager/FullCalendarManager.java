@@ -5,8 +5,10 @@ package fr.eni.dispocar.manager;
 
 import java.util.List;
 
+import fr.eni.dispocar.bo.Reservation;
 import fr.eni.dispocar.bo.ReservationFullCalendar;
 import fr.eni.dispocar.dal.FullCalendarDAO;
+import fr.eni.dispocar.dal.ReservationDAO;
 import fr.eni.dispocar.exception.ConnectionProviderException;
 import fr.eni.dispocar.exception.DALException;
 import fr.eni.dispocar.exception.ManagerException;
@@ -18,13 +20,13 @@ import fr.eni.dispocar.exception.ManagerException;
  */
 public class FullCalendarManager {
 	
-	private FullCalendarDAO calendarDAO;
+	private ReservationDAO calendarDAO;
 
 	/**
 	 * @param calendarDAO
 	 */
 	public FullCalendarManager() {
-		calendarDAO = new FullCalendarDAO();
+		calendarDAO = new ReservationDAO();
 	}
 	
 	/**
@@ -33,13 +35,13 @@ public class FullCalendarManager {
 	 * @throws ManagerException
 	 */
 	public List<ReservationFullCalendar> selestAllFullCalendar() throws ManagerException{
-		List<ReservationFullCalendar> reservations = null;
+		List<Reservation> reservations = null;
 		try {
-			reservations = calendarDAO.selectAll();
-		} catch (DALException | ConnectionProviderException e) {
+			reservations = calendarDAO.selectAllReservations();
+		} catch (DALException e) {
 			throw new ManagerException("Une erreur est survenue dans le manager FullCalendar", e);
 		}
-		return reservations;
+		return null;
 	}
 
 }

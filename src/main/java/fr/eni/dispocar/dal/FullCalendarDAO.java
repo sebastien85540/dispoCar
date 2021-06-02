@@ -14,6 +14,7 @@ import java.util.List;
 
 import fr.eni.dispocar.bo.Reservation;
 import fr.eni.dispocar.bo.ReservationFullCalendar;
+import fr.eni.dispocar.bo.Salarie;
 import fr.eni.dispocar.exception.ConnectionProviderException;
 import fr.eni.dispocar.exception.DALException;
 
@@ -24,12 +25,19 @@ import fr.eni.dispocar.exception.DALException;
  */
 public class FullCalendarDAO {
 	
-	private static final String SELECT_ALL_RESERVATIONS = "SELECT id_reservation, date_depart, date_retour, vehicule, Salaries.prenom  FROM Reservations \r\n"
-			+ "INNER JOIN Reservation_Salarie ON id_reservation = reservation_id\r\n"
+	private static final String SELECT_ALL_RESERVATIONS = "SELECT id_reservation, date_depart, date_retour, vehicule, prenom  FROM Reservations \r\n"
+			+ "INNER JOIN Reservation_Salarie ON id_reservation = reservation_id \r\n"
 			+ "INNER JOIN Salaries ON salarie_id = id_salarie";
-	private static final String SELECT_ONE_RESERVATION = "SELECT (id_reservation, date_depart, date_retour, motif) FROM Reservations WHERE id_reservation=?";
-	//private static final String
+	private static final String SELECT_ONE_RESERVATION = "SELECT id_reservation, date_depart, date_retour, vehicule, prenom  FROM Reservations \r\n"
+			+ "INNER JOIN Reservation_Salarie ON id_reservation = reservation_id \r\n"
+			+ "INNER JOIN Salaries ON salarie_id = id_salarie WHERE id_reservation=?";
 	
+	/**
+	 * Cette methode récupère toutes les reservationsCalendar pour mon calendrier
+	 * @return une liste de reservationFullCalendar
+	 * @throws DALException
+	 * @throws ConnectionProviderException
+	 */
 	public List<ReservationFullCalendar> selectAll() throws DALException, ConnectionProviderException{
 		Connection cnx = null;
 		Statement smtSelectAll = null;
@@ -41,14 +49,14 @@ public class FullCalendarDAO {
 			ResultSet rs = smtSelectAll.executeQuery(SELECT_ALL_RESERVATIONS);
 			
 			while (rs.next()) {
+				ReservationFullCalendar resa = new ReservationFullCalendar();
+
+
 				
-				ReservationFullCalendar resa;
-				resa = new ReservationFullCalendar();
-				
-				resa.setUrl("/resa?id=" + String.valueOf(rs.getInt("id_reservation")));
+				resa.setUrl("/private/resa?id=" + String.valueOf(rs.getInt("id_reservation")));
 				resa.setStart(rs.getString("date_depart"));
 				resa.setEnd(rs.getString("date_retour"));
-				resa.setTitle(rs.getString("Salaries.prenom") + rs.getString("motif"));
+				resa.setTitle("réservé par " + rs.getString("prenom") + " avec le vehicule immatriculé " + rs.getString("vehicule"));
 				reservations.add(resa);
 				System.out.println(resa);
 			}

@@ -27,12 +27,12 @@ import fr.eni.dispocar.tools.PasswordTools;
 public class UtilisateurDAO {
 	
 	// Preparation de mes constantes contenant mes commandes SQL
-	private static final String INSERT_UTILISATEUR = "INSERT INTO Utilisateurs(email, mot_passe, administrateur) VALUES (?, ?, ?)";
-	private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET email=?, mot_passe=?, administrateur=? WHERE id_utilisateur=?";
+	private static final String INSERT_UTILISATEUR = "INSERT INTO Utilisateurs(email, password, administrateur) VALUES (?, ?, ?)";
+	private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateurs SET email=?, password=?, administrateur=? WHERE id_utilisateur=?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM Utilisateurs WHERE id_utilisateur=?";
 	private static final String SELECT_ALL = "SELECT * FROM Utilisateurs";
-	private static final String SELECT_BY_ID = "SELECT id_utilisateur, email, mot_passe, administrateur FROM Utilisateurs WHERE id_utilisateur=?";
-	private static final String AUTH = "SELECT email, mot_passe, administrateur FROM Utilisateurs WHERE email=? AND mot_passe=?";
+	private static final String SELECT_BY_ID = "SELECT id_utilisateur, email, password, administrateur FROM Utilisateurs WHERE id_utilisateur=?";
+	private static final String AUTH = "SELECT email, password, administrateur FROM Utilisateurs WHERE email=? AND password=?";
 	
 	/**
 	 * Methode INSERT pour inserer un utilisateur 
@@ -179,7 +179,7 @@ public class UtilisateurDAO {
 				util = new Utilisateur();
 				util.setIdUtilisateur(rs.getInt("id_utilisateur"));
 				util.setEmail(rs.getString("email"));
-				util.setPassword(rs.getString("mot_passe"));
+				util.setPassword(rs.getString("password"));
 				util.setAdministrateur(rs.getBoolean("administrateur"));
 				utilisateurs.add(util);
 				System.out.println(util);
@@ -229,7 +229,7 @@ public class UtilisateurDAO {
 			if (rs.next()) {
 				utilisateur = new Utilisateur(
 											rs.getString("email"),
-											rs.getString("mot_passe"),
+											rs.getString("password"),
 											rs.getBoolean("administrateur")
 											);
 				
@@ -270,7 +270,7 @@ public class UtilisateurDAO {
 				util = new Utilisateur(
 										rs.getInt("id_utilisateur"),
 										rs.getString("email"),
-										rs.getString("mot_passe"),
+										rs.getString("password"),
 										rs.getBoolean("administrateur")
 										);
 			}

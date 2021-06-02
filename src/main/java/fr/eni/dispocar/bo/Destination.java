@@ -19,6 +19,7 @@ public class Destination {
 	private String complementDestination;
 	private int codePostal;
 	private String ville;
+	private Boolean agence;
 	
 	// CONSTRUCTEURS
 	
@@ -35,11 +36,12 @@ public class Destination {
 	 * @param codePostal
 	 * @param ville
 	 */
-	public Destination(int numeroDestination, String rueDestination, int codePostal, String ville) {
+	public Destination(int numeroDestination, String rueDestination, int codePostal, String ville, Boolean agence) {
 		setNumeroDestination(numeroDestination);
 		setRueDestination(rueDestination);
 		setCodePostal(codePostal);
 		setVille(ville);
+		setAgence(agence);
 	}
 	
 	/**
@@ -52,13 +54,14 @@ public class Destination {
 	 * @param ville
 	 */
 	public Destination(String libelleDestination, int numeroDestination, String rueDestination,
-			String complementDestination, int codePostal, String ville) {
+			String complementDestination, int codePostal, String ville, Boolean agence) {
 		setLibelleDestination(libelleDestination);
 		setNumeroDestination(numeroDestination);
 		setRueDestination(rueDestination);
 		setComplementDestination(complementDestination);
 		setCodePostal(codePostal);
 		setVille(ville);
+		setAgence(agence);
 	}
 	
 	/**
@@ -70,9 +73,10 @@ public class Destination {
 	 * @param complementDestination
 	 * @param codePostal
 	 * @param ville
+	 * @param agence
 	 */
 	public Destination(Integer idDestination, String libelleDestination, int numeroDestination, String rueDestination,
-			String complementDestination, int codePostal, String ville) {
+			String complementDestination, int codePostal, String ville, Boolean agence) {
 		setIdDestination(idDestination);
 		setLibelleDestination(libelleDestination);
 		setNumeroDestination(numeroDestination);
@@ -80,6 +84,7 @@ public class Destination {
 		setComplementDestination(complementDestination);
 		setCodePostal(codePostal);
 		setVille(ville);
+		setAgence(agence);
 	}
 	
 	// GETTERS ET SETTERS
@@ -182,8 +187,30 @@ public class Destination {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	
+
+	/**
+	 * @return the agence
+	 */
+	public Boolean getAgence() {
+		return agence;
+	}
+
+	/**
+	 * @param agence the agence to set
+	 */
+	public void setAgence(Boolean agence) {
+		this.agence = agence;
+	}
+
 	// METHODE TO STRING
 	
-
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"Destination [getIdDestination()=%s, getLibelleDestination()=%s, getNumeroDestination()=%s, getRueDestination()=%s, getComplementDestination()=%s, getCodePostal()=%s, getVille()=%s, getAgence()=%s, toString()=%s]",
+				getIdDestination(), getLibelleDestination(), getNumeroDestination(), getRueDestination(),
+				getComplementDestination(), getCodePostal(), getVille(), getAgence(), super.toString());
+	}
+	
 }

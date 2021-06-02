@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <%@ include file="partials/navbar.jspf" %>
 	<section class="container">
 		<h1>Calendrier</h1>
-		
+		<div>
+			
+		</div>
 		<div id='calendar'></div>
 	</section>
 <%@ include file="partials/footer.jspf" %>

@@ -13,7 +13,6 @@ import java.util.List;
 public class Agence extends Destination{
 	
 	// ATTRIBUTS
-	private String nomAgence;
 	private List<Vehicule> vehiculesAgence;
 	
 	// CONSTRUCTEUR
@@ -34,9 +33,8 @@ public class Agence extends Destination{
 	 * @param ville
 	 * @param vehiculesAgence
 	 */
-	public Agence(String  nomAgence,int numeroDestination, String rueDestination, int codePostal, String ville, List<Vehicule> vehiculesAgence) {
+	public Agence(int numeroDestination, String rueDestination, int codePostal, String ville, List<Vehicule> vehiculesAgence) {
 		super(numeroDestination, rueDestination, codePostal, ville);
-		setNomAgence(nomAgence);
 		setVehiculesAgence(vehiculesAgence);
 	}
 
@@ -52,10 +50,9 @@ public class Agence extends Destination{
 	 * @param ville
 	 * @param vehiculesAgence
 	 */
-	public Agence(Integer idDestination,String  nomAgence, String libelleDestination, int numeroDestination, String rueDestination,
+	public Agence(Integer idDestination, String libelleDestination, int numeroDestination, String rueDestination,
 			String complementDestination, int codePostal, String ville, List<Vehicule> vehiculesAgence) {
 		super(idDestination, libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville);
-		setNomAgence(nomAgence);
 		setVehiculesAgence(vehiculesAgence);
 	}
 
@@ -70,27 +67,10 @@ public class Agence extends Destination{
 	 * @param ville
 	 * @param vehiculesAgence
 	 */
-	public Agence(String  nomAgence,String libelleDestination, int numeroDestination, String rueDestination, String complementDestination,
+	public Agence(String libelleDestination, int numeroDestination, String rueDestination, String complementDestination,
 			int codePostal, String ville, List<Vehicule> vehiculesAgence) {
 		super(libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville);
-		setNomAgence(nomAgence);
 		setVehiculesAgence(vehiculesAgence);
-	}
-	
-	// GETTERS ET SETTERS
-
-	/**
-	 * @return the nomAgence
-	 */
-	public String getNomAgence() {
-		return nomAgence;
-	}
-
-	/**
-	 * @param nomAgence the nomAgence to set
-	 */
-	public void setNomAgence(String nomAgence) {
-		this.nomAgence = nomAgence;
 	}
 	
 
@@ -112,8 +92,7 @@ public class Agence extends Destination{
 
 	@Override
 	public String toString() {
-		return String.format("Agence [getNomAgence()=%s, getVehiculesAgence()=%s, toString()=%s]", getNomAgence(),
-				getVehiculesAgence(), super.toString());
+		return String.format("Agence [getVehiculesAgence()=%s, toString()=%s]", getVehiculesAgence(), super.toString());
 	}
 	
 }
