@@ -6,10 +6,7 @@ package fr.eni.dispocar.manager;
 import java.util.List;
 
 import fr.eni.dispocar.bo.Reservation;
-import fr.eni.dispocar.bo.ReservationFullCalendar;
-import fr.eni.dispocar.dal.FullCalendarDAO;
 import fr.eni.dispocar.dal.ReservationDAO;
-import fr.eni.dispocar.exception.ConnectionProviderException;
 import fr.eni.dispocar.exception.DALException;
 import fr.eni.dispocar.exception.ManagerException;
 
@@ -34,14 +31,24 @@ public class FullCalendarManager {
 	 * @return une liste des reservations
 	 * @throws ManagerException
 	 */
-	public List<ReservationFullCalendar> selestAllFullCalendar() throws ManagerException{
+	public List<Reservation> selestAllFullCalendar() throws ManagerException{
 		List<Reservation> reservations = null;
 		try {
 			reservations = calendarDAO.selectAllReservations();
 		} catch (DALException e) {
 			throw new ManagerException("Une erreur est survenue dans le manager FullCalendar", e);
 		}
-		return null;
+		return reservations;
+	}
+	
+	public Reservation selectById(int id) throws ManagerException {
+		Reservation reservation = null;
+		try {
+			reservation = calendarDAO.selectById(id);
+		} catch (DALException e) {
+			throw new ManagerException("recuperation impossible dans le manager FullCalendar", e);
+		}
+		return reservation ;
 	}
 
 }

@@ -4,6 +4,7 @@
 package fr.eni.dispocar.bo;
 
 import java.io.File;
+import java.time.LocalDate;
 
 /**
  * @author sebastien
@@ -29,18 +30,37 @@ public class VehiculePersonnel extends Vehicule{
 	
 	/**
 	 * @param immatriculation
-	 * @param nbrePlaces
 	 * @param designationVehicule
-	 * @param carteGriseName
-	 * @param carteGrise
-	 * @param proprietaire
+	 * @param nbrePlaces
+	 * @param dateAchat
+	 * @param typeVehicule
 	 */
-	public VehiculePersonnel(String immatriculation, int nbrePlaces, String designationVehicule, String carteGriseName, File carteGrise, Salarie proprietaire) {
-		super(immatriculation, nbrePlaces, designationVehicule);
+	public VehiculePersonnel(String immatriculation, String designationVehicule, int nbrePlaces, LocalDate dateAchat,
+			String typeVehicule, String carteGriseName, File carteGrise, Salarie proprietaire) {
+		super(immatriculation, designationVehicule, nbrePlaces, typeVehicule);
 		setCarteGriseName(carteGriseName);
 		setCarteGrise(carteGrise);
 		setProprietaire(proprietaire);
 	}
+
+	/**
+	 * @param immatriculation
+	 * @param designationVehicule
+	 * @param nbrePlaces
+	 * @param typeVehicule
+	 */
+	public VehiculePersonnel(String immatriculation, String designationVehicule, int nbrePlaces, String typeVehicule, String carteGriseName, File carteGrise, Salarie proprietaire) {
+		super(immatriculation, designationVehicule, nbrePlaces, typeVehicule);
+		setCarteGriseName(carteGriseName);
+		setCarteGrise(carteGrise);
+		setProprietaire(proprietaire);
+	}
+
+	public VehiculePersonnel(String immatriculation, String designationVehicule, int nbrePlaces, String carteGriseName, String typeVehicule) {
+		super(immatriculation, designationVehicule, nbrePlaces, typeVehicule);
+		setCarteGriseName(carteGriseName);
+	}
+
 	// ASCESSEURS ET MUTATEURS
 	/**
 	 * @return the carteGriseName

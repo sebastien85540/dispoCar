@@ -33,15 +33,14 @@ public class Agence extends Destination{
 	 * @param ville
 	 * @param vehiculesAgence
 	 */
-	public Agence(int numeroDestination, String rueDestination, int codePostal, String ville, List<Vehicule> vehiculesAgence) {
-		super(numeroDestination, rueDestination, codePostal, ville);
+	public Agence(int numeroDestination, String rueDestination, int codePostal, String ville, Boolean agence, List<Vehicule> vehiculesAgence) {
+		super(numeroDestination, rueDestination, codePostal, ville, agence);
 		setVehiculesAgence(vehiculesAgence);
 	}
 
 	/**
 	 * Constructeur surchargé avec tous les attributs sauf l'ID
 	 * @param idDestination
-	 * @param nomAgence
 	 * @param libelleDestination
 	 * @param numeroDestination
 	 * @param rueDestination
@@ -51,8 +50,8 @@ public class Agence extends Destination{
 	 * @param vehiculesAgence
 	 */
 	public Agence(Integer idDestination, String libelleDestination, int numeroDestination, String rueDestination,
-			String complementDestination, int codePostal, String ville, List<Vehicule> vehiculesAgence) {
-		super(idDestination, libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville);
+			String complementDestination, int codePostal, String ville,  Boolean agence,List<Vehicule> vehiculesAgence) {
+		super(idDestination, libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville,agence);
 		setVehiculesAgence(vehiculesAgence);
 	}
 
@@ -68,8 +67,8 @@ public class Agence extends Destination{
 	 * @param vehiculesAgence
 	 */
 	public Agence(String libelleDestination, int numeroDestination, String rueDestination, String complementDestination,
-			int codePostal, String ville, List<Vehicule> vehiculesAgence) {
-		super(libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville);
+			int codePostal, String ville,  Boolean agence,List<Vehicule> vehiculesAgence) {
+		super(libelleDestination, numeroDestination, rueDestination, complementDestination, codePostal, ville,agence);
 		setVehiculesAgence(vehiculesAgence);
 	}
 	

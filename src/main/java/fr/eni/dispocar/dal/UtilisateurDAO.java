@@ -182,7 +182,6 @@ public class UtilisateurDAO {
 				util.setPassword(rs.getString("password"));
 				util.setAdministrateur(rs.getBoolean("administrateur"));
 				utilisateurs.add(util);
-				System.out.println(util);
 			}
 		} catch (SQLException e) {
 			throw new DALException("L'application n'a pas reussie à sortir la liste SelectAll ", e);

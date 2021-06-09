@@ -45,3 +45,21 @@ form{
     max-width: 900px;
     margin: 0 auto;
   }
+  
+/***************************
+******* DESTINATIONS *******
+***************************/
+.fa-times{
+	color: red;
+}
+
+.fa-check{
+	color: green;
+}
+
+/************************
+***  RESERVATION ADD ****
+************************/
+.fa-plus-circle{
+	color: green;
+}

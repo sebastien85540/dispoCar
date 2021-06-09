@@ -27,10 +27,14 @@
 					<td>${reservation.dateDebutReservation }</td>
 					<td>${reservation.dateFinReservation }</td>
 					<td>${reservation.descriptionReservation }</td>
-					<td>${reservation.departReservation }</td>
-					<td>${reservation.arriveeDestination }</td>
-					<td>${reservation.reservataires }</td>
-					<td>${reservation.vehiculeReservation }</td>
+					<td>${reservation.departReservation.libelleDestination }</td>
+					<td>${reservation.arriveeDestination.libelleDestination }</td>
+					<td>
+					<c:forEach var="reservataire" items="${reservation.reservataires }">
+						${reservataire.prenom }
+					</c:forEach>
+					</td>
+					<td>${reservation.vehiculeReservation.immatriculation }</td>
 					<td>
 						<a href="${pageContext.request.contextPath }/private/utilisateur/delete?idUtilisateur=${ reservation.idReservation }"><i class="fas fa-trash-alt"></i></a>
 					 	<a href="${pageContext.request.contextPath }/private/utilisateur/update?idUtilisateurUpdate=${reservation.idReservation }"><i class="fas fa-pencil-alt"></i></a>

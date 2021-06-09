@@ -46,10 +46,10 @@ public class ReservationFullCalendar {
 	
 	public ReservationFullCalendar(String start, String end, String title, String url) {
 		super();
-		this.start = start;
-		this.end = end;
-		this.title = title;
-		this.url = url;
+		setStart(start);
+		setEnd(end);
+		setTitle(title);
+		setUrl(url);
 	}
 	public ReservationFullCalendar() {
 	}

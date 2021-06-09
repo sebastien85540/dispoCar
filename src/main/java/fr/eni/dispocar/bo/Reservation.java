@@ -16,9 +16,9 @@ public class Reservation {
 	// ATTRIBUTS
 	
 	private Integer idReservation;
-	private String motifReservation;
 	private LocalDateTime dateDebutReservation;
 	private LocalDateTime dateFinReservation;
+	private String motifReservation;
 	private String descriptionReservation;
 	private Agence departReservation;
 	private Destination arriveeDestination;
@@ -36,27 +36,26 @@ public class Reservation {
 	/**
 	 * Constructeur surchargé avec id
 	 * @param idReservation
-	 * @param motifReservation
 	 * @param dateDebutReservation
 	 * @param dateFinReservation
+	 * @param motifReservation
 	 * @param descriptionReservation
 	 * @param departReservation
 	 * @param arriveeDestination
 	 * @param reservataires
 	 * @param vehiculeReservation
 	 */
-	public Reservation(Integer idReservation, String motifReservation, LocalDateTime dateDebutReservation,
-			LocalDateTime dateFinReservation, String descriptionReservation, Agence departReservation,
-			Destination arriveeDestination, List<Salarie> reservataires, Vehicule vehiculeReservation) {
-		this.idReservation = idReservation;
-		this.motifReservation = motifReservation;
-		this.dateDebutReservation = dateDebutReservation;
-		this.dateFinReservation = dateFinReservation;
-		this.descriptionReservation = descriptionReservation;
-		this.departReservation = departReservation;
-		this.arriveeDestination = arriveeDestination;
-		this.reservataires = reservataires;
-		this.vehiculeReservation = vehiculeReservation;
+	public Reservation(Integer idReservation, LocalDateTime dateDebutReservation, LocalDateTime dateFinReservation, String motifReservation, String descriptionReservation, Vehicule vehiculeReservation,
+			Agence departReservation, Destination arriveeDestination, List<Salarie> reservataires) {
+		setIdReservation(idReservation);
+		setDateDebutReservation(dateDebutReservation);
+		setDateFinReservation(dateFinReservation);
+		setMotifReservation(motifReservation);
+		setDescriptionReservation(descriptionReservation);
+		setVehiculeReservation(vehiculeReservation);
+		setDepartReservation(departReservation);
+		setArriveeDestination(arriveeDestination);
+		setReservataires(reservataires);
 	}
 
 	/**
@@ -70,17 +69,16 @@ public class Reservation {
 	 * @param reservataires
 	 * @param vehiculeReservation
 	 */
-	public Reservation(String motifReservation, LocalDateTime dateDebutReservation, LocalDateTime dateFinReservation,
-			String descriptionReservation, Agence departReservation, Destination arriveeDestination,
-			List<Salarie> reservataires, Vehicule vehiculeReservation) {
-		this.motifReservation = motifReservation;
-		this.dateDebutReservation = dateDebutReservation;
-		this.dateFinReservation = dateFinReservation;
-		this.descriptionReservation = descriptionReservation;
-		this.departReservation = departReservation;
-		this.arriveeDestination = arriveeDestination;
-		this.reservataires = reservataires;
-		this.vehiculeReservation = vehiculeReservation;
+	public Reservation(LocalDateTime dateDebutReservation, LocalDateTime dateFinReservation, String motifReservation, String descriptionReservation,
+			Agence departReservation, Destination arriveeDestination, List<Salarie> reservataires, Vehicule vehiculeReservation) {
+		setDateDebutReservation(dateDebutReservation);
+		setDateFinReservation(dateFinReservation);
+		setMotifReservation(motifReservation);
+		setDescriptionReservation(descriptionReservation);
+		setVehiculeReservation(vehiculeReservation);
+		setDepartReservation(departReservation);
+		setArriveeDestination(arriveeDestination);
+		setReservataires(reservataires);
 	}
 	
 	// ASCESSEURS ET MUTATEURS
@@ -211,9 +209,11 @@ public class Reservation {
 	public void setVehiculeReservation(Vehicule vehiculeReservation) {
 		this.vehiculeReservation = vehiculeReservation;
 	}
+
 	
 	// METHODE TOSTRING
-
+	
+	
 	@Override
 	public String toString() {
 		return String.format(
@@ -222,5 +222,4 @@ public class Reservation {
 				getDescriptionReservation(), getDepartReservation(), getArriveeDestination(), getReservataires(),
 				getVehiculeReservation());
 	}
-	
 }

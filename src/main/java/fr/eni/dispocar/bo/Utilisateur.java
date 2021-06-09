@@ -44,9 +44,9 @@ public class Utilisateur {
 	 * @param administrateur
 	 */
 	public Utilisateur(String email, String password, Boolean administrateur) {
-		this.email = email;
-		this.password = password;
-		this.administrateur = administrateur;
+		setEmail(email);
+		setPassword(password);
+		setAdministrateur(administrateur);
 	}
 	
 	// ASCESSEURS ET MUTATEURS

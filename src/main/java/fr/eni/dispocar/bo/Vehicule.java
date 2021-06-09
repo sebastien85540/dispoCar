@@ -15,9 +15,10 @@ public class Vehicule {
 	// ATTRIBUTS
 	
 	private String immatriculation;
-	private int nbrePlaces;
 	private String designationVehicule;
+	private int nbrePlaces;
 	private LocalDate dateAchat;
+	private String typeVehicule;
 	
 	// CONSTRUCTEURS
 	
@@ -30,31 +31,27 @@ public class Vehicule {
 	/**
 	 * Constructeur surchargé avec les attributs obligatoires
 	 * @param immatriculation
-	 * @param nbrePlaces
 	 * @param designationVehicule
+	 * @param nbrePlaces
+	 * @param typeVehicule
 	 */
-	public Vehicule(String immatriculation, int nbrePlaces, String designationVehicule) {
-		this.immatriculation = immatriculation;
-		this.nbrePlaces = nbrePlaces;
-		this.designationVehicule = designationVehicule;
+	public Vehicule(String immatriculation, String designationVehicule, int nbrePlaces, String typeVehicule) {
+		setImmatriculation(immatriculation);
+		setDesignationVehicule(designationVehicule);
+		setNbrePlaces(nbrePlaces);
+		setTypeVehicule(typeVehicule);
 	}
 
-	/**
-	 * Constructeur surchargé avec les attributs pour un vehicule d'agence
-	 * @param immatriculation
-	 * @param nbrePlaces
-	 * @param designationVehicule
-	 * @param dateAchat
-	 */
-	public Vehicule(String immatriculation, int nbrePlaces, String designationVehicule, LocalDate dateAchat) {
-		this.immatriculation = immatriculation;
-		this.nbrePlaces = nbrePlaces;
-		this.designationVehicule = designationVehicule;
-		this.dateAchat = dateAchat;
-	}
-	
 	// ASCESSEURS ET MUTATEURS
 	// ça permet l'encapsulation des attributs
+
+	public Vehicule(String immatriculation, String designationVehicule, int nbrePlaces, LocalDate dateAchat, String typeVehicule) {
+		setImmatriculation(immatriculation);
+		setDesignationVehicule(designationVehicule);
+		setNbrePlaces(nbrePlaces);
+		setDateAchat(dateAchat);
+		setTypeVehicule(typeVehicule);
+	}
 
 	/**
 	 * @return the immatriculation
@@ -111,14 +108,29 @@ public class Vehicule {
 	public void setDateAchat(LocalDate dateAchat) {
 		this.dateAchat = dateAchat;
 	}
+
+	/**
+	 * @return the typeVehicule
+	 */
+	public String getTypeVehicule() {
+		return typeVehicule;
+	}
+
+	/**
+	 * @param typeVehicule the typeVehicule to set
+	 */
+	public void setTypeVehicule(String typeVehicule) {
+		this.typeVehicule = typeVehicule;
+	}
+	
 	
 	// METHODE TOSTRING
+	
 
 	@Override
 	public String toString() {
 		return String.format(
-				"Vehicule [getImmatriculation()=%s, getNbrePlaces()=%s, getDesignationVehicule()=%s, getDateAchat()=%s]",
-				getImmatriculation(), getNbrePlaces(), getDesignationVehicule(), getDateAchat());
+				"Vehicule [getImmatriculation()=%s, getNbrePlaces()=%s, getDesignationVehicule()=%s, getDateAchat()=%s, getTypeVehicule()=%s]",
+				getImmatriculation(), getNbrePlaces(), getDesignationVehicule(), getDateAchat(), getTypeVehicule());
 	}
-	
 }

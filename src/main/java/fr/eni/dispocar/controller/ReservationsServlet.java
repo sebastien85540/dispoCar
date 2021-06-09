@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.dispocar.bo.Reservation;
+import fr.eni.dispocar.exception.ManagerException;
 import fr.eni.dispocar.manager.ReservationManager;
 
 /**
@@ -38,7 +39,13 @@ public class ReservationsServlet extends HttpServlet {
 		request.setAttribute("title", title);
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		
-		reservations = resamgr.selectAllReservations();
+		try {
+			reservations = resamgr.selectAllReservations();
+
+		} catch (ManagerException e) {
+			throw new ServletException("La récuperation de la liste des reservations s'est mal passée");
+		}
+		request.setAttribute("reservations", reservations);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reservations/reservations.jsp");
 		rd.forward(request, response);

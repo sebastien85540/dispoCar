@@ -18,7 +18,7 @@ public class Salarie {
 	private String nom;
 	private String prenom;
 	private String email;
-	private int telephone;
+	private String telephone;
 	private String permisName;
 	private File permis;
 	private Agence agenceSalarie;
@@ -41,7 +41,7 @@ public class Salarie {
 	 * @param permis
 	 * @param agenceSalarie
 	 */
-	public Salarie(String nom, String prenom, String email, int telephone, String permisName, File permis,
+	public Salarie(String nom, String prenom, String email, String telephone, String permisName, File permis,
 			Agence agenceSalarie) {
 		setNom(nom);
 		setPrenom(prenom);
@@ -51,8 +51,41 @@ public class Salarie {
 		setPermis(permis);
 		setAgenceSalarie(agenceSalarie);
 	}
+	
 	// GETTERS ET SETTERS
 	// ils permettent d'encapsuler les attributs et de proteger contre les attaque XSS
+
+	/**
+	 * @param idSalarie
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param telephone
+	 * @param permisName
+	 * @param permis
+	 * @param agenceSalarie
+	 */
+	public Salarie(Integer idSalarie, String nom, String prenom, String email, String telephone, String permisName,
+			File permis, Agence agenceSalarie) {
+		setIdSalarie(idSalarie);
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTelephone(telephone);
+		setPermisName(permisName);
+		setPermis(permis);
+		setAgenceSalarie(agenceSalarie);
+	}
+
+	public Salarie(int idSalarie, String nom, String prenom, String email, String telephone, String permisName, Agence agenceSalarie) {
+		setIdSalarie(idSalarie);
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTelephone(telephone);
+		setPermisName(permisName);
+		setAgenceSalarie(agenceSalarie);
+	}
 
 	/**
 	 * @return the idSalarie
@@ -113,14 +146,14 @@ public class Salarie {
 	/**
 	 * @return the telephone
 	 */
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
 	/**
 	 * @param telephone the telephone to set
 	 */
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 

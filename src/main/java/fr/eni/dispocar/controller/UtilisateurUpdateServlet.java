@@ -71,14 +71,9 @@ public class UtilisateurUpdateServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(updateUtil.getEmail());
-		System.out.println(updateUtil.getIdUtilisateur());
 		String email = request.getParameter("email");
-		System.out.println(email);
 		String password = request.getParameter("password");
-		System.out.println(password);
 		Boolean administrateur = Boolean.valueOf(request.getParameter("administrateur"));
-		System.out.println(administrateur);
 		
 		Utilisateur u = new Utilisateur(updateUtil.getIdUtilisateur(), email, password, administrateur);
 		System.out.println(u.getIdUtilisateur());

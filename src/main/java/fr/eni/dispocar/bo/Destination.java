@@ -35,6 +35,7 @@ public class Destination {
 	 * @param rueDestination
 	 * @param codePostal
 	 * @param ville
+	 * @param agence
 	 */
 	public Destination(int numeroDestination, String rueDestination, int codePostal, String ville, Boolean agence) {
 		setNumeroDestination(numeroDestination);
@@ -52,6 +53,7 @@ public class Destination {
 	 * @param complementDestination
 	 * @param codePostal
 	 * @param ville
+	 * @param agence
 	 */
 	public Destination(String libelleDestination, int numeroDestination, String rueDestination,
 			String complementDestination, int codePostal, String ville, Boolean agence) {
